@@ -1,5 +1,6 @@
 const express = require('express')
 // const path = require('path')
+const fetch = require('node-fetch')
 
 const app = express()
 
@@ -13,6 +14,11 @@ const app = express()
 const router = express.Router()
 router.get('/test', (req, res) => {
   res.json({ msg: 'success' })
+})
+router.get('/events/popular', (req, res) => {
+  fetch('https://fe-api.smarkets.com/v0/events/popular/')
+    .then(response => response.json())
+    .then(json => res.json(json))
 })
 
 app.use('/api', router)

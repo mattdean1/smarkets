@@ -14,7 +14,11 @@ class PopularEvents extends Component {
   }
 
   render() {
-    return <pre>{this.state.events ? this.state.events.msg : 'Loading...'}</pre>
+    return (
+      <pre>
+        {this.state.events ? JSON.stringify(this.state.events.results, null, 2) : 'Loading...'}
+      </pre>
+    )
   }
 }
 

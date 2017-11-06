@@ -12,6 +12,7 @@ async function getJSON(endpoint, _method, _body) {
     if (response.ok) {
       return response.json()
     }
+    // TODO: return error as json instead of throwing?
     throw new Error(`Invalid response from endpoint ${endpoint}`)
   } catch (err) {
     throw new Error('Failed to contact API: ', err)
@@ -19,5 +20,5 @@ async function getJSON(endpoint, _method, _body) {
 }
 
 export default async function getPopularEvents() {
-  return getJSON('test')
+  return getJSON('events/popular')
 }
