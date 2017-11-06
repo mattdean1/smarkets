@@ -18,7 +18,7 @@ router.get('/test', (req, res) => {
 router.get('/events/popular', (req, res) => {
   fetch('https://fe-api.smarkets.com/v0/events/popular/')
     .then(response => response.json())
-    .then(json => res.json(json))
+    .then(json => res.json(json.results))
 })
 
 app.use('/api', router)
