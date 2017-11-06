@@ -19,6 +19,10 @@ async function getJSON(endpoint, _method, _body) {
   }
 }
 
-export default async function getPopularEvents() {
+export async function getPopularEvents() {
   return getJSON('events/popular')
+}
+
+export async function getEventDetails(id) {
+  return getJSON(`events/${id}`)
 }

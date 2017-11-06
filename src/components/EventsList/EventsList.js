@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import getPopularEvents from '../../controllers/api'
+import { getPopularEvents } from '../../controllers/api'
 
 import ListItem from './EventsListItem'
 
@@ -20,10 +20,10 @@ class PopularEvents extends Component {
 
   render() {
     const listItems = this.state.events.map(event => (
-      <ListItem name={event.name} league={event.parent_name} url={event.url} />
+      <ListItem key={event.id} id={event.id} name={event.name} league={event.parent_name} />
     ))
 
-    return <pre>{eventsAreLoading(listItems) ? 'Loading...' : listItems}</pre>
+    return <div>{eventsAreLoading(listItems) ? 'Loading...' : listItems}</div>
   }
 }
 
